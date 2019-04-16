@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+    <Appenders>
+      
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p: %d{dd.MM.yyyy HH:mm:ss.SSS} %m%n"/>
+        </Console>
+      
+      	<RollingFile name="file" fileName="${sys:catalina.base}/logs/rest.log"
+                 	 filePattern="${sys:catalina.base}/logs/rest.log.%i.gz">
+      		<PatternLayout pattern="%-5p: %d{dd.MM.yyyy HH:mm:ss.SSS} %m%n"/>          
+      		<Policies>
+        		<SizeBasedTriggeringPolicy size="100 MB"/>
+      		</Policies>
+    	</RollingFile>
+      
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="ru.airlabs.ego.survey" level="warn" />
+
+        <!-- 3rd party Loggers -->
+        <Logger name="org.springframework.core" level="warn" />
+        <Logger name="org.springframework.beans" level="warn" />
+        <Logger name="org.springframework.context" level="warn" />
+        <Logger name="org.hibernate" level="info" />
+
+        <Root level="warn">
+            <Appender-ref ref="file"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

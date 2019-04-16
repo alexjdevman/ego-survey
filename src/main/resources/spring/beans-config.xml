@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Бин для хранения настроек параметров загрузки файлов -->
+    <bean id="fileUploadConfig" class="ru.airlabs.ego.survey.config.FileUploadConfig">
+        <!-- Полный путь к корневой директории, в которой будут храниться загружаемые фотографии пользователей -->
+        <property name="userImageRootLocation" value="${fileUploadConfig.userImageRootLocation}"/>
+        <!-- Полный путь к корневой директории, в которой будут храниться логотипы компаний -->
+        <property name="companyLogoRootLocation" value="${fileUploadConfig.companyLogoRootLocation}"/>
+        <!-- Полный путь к корневой директории, в которой храняться загружаемые резюме пользователей -->
+        <property name="userResumeRootLocation" value="${fileUploadConfig.userResumeRootLocation}"/>
+        <!-- Полный путь к корневой директории, в которой будут храниться загружаемые резюме пользователей, которые не удалось обработать -->
+        <property name="userResumeErrorLocation" value="${fileUploadConfig.userResumeErrorLocation}"/>
+        <!-- Максимальное кол-во файлов с фотографиями пользователей, которые могут храниться в одной директории на сервере -->
+        <property name="maxDirectorySize" value="${fileUploadConfig.maxDirectorySize}"/>
+    </bean>
+</beans>
